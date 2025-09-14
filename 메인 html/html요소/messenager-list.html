@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Messenger — Chats</title>
+  <link rel="stylesheet" href="messenger-list.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Top app bar -->
+    <header class="appbar">
+      <div class="brand">
+        <button class="icon ghost" aria-label="프로필">
+          <img class="avatar sm" src="" alt="" />
+          <!-- 비어있으면 원형 이니셜 -->
+        </button>
+        <h1>Chats</h1>
+      </div>
+      <div class="actions">
+        <button class="icon" aria-label="검색" title="검색">
+          <!-- search -->
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15.5 14h-.79l-.28-.27a6.471 6.471 0 0 0 1.57-4.23A6.5 6.5 0 1 0 9.5 16.5c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.505 4.505 0 0 1 9.5 14Z" fill="currentColor"/></svg>
+        </button>
+        <button class="icon" aria-label="새 메시지" title="새 메시지">
+          <!-- pencil -->
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Sticky search -->
+    <div class="search-row">
+      <input class="search" type="search" placeholder="사람·채팅 검색" />
+    </div>
+
+    <!-- Chats list -->
+    <main class="list" role="list">
+      <!-- item -->
+      <a class="chat unread pinned" href="#" role="listitem">
+        <div class="avatar lg" data-initial="팀"></div>
+        <div class="content">
+          <div class="top">
+            <span class="name">졸업프로젝트 팀방</span>
+            <time class="time">09:20</time>
+          </div>
+          <div class="bottom">
+            <span class="preview">발표 리허설 2시에 모일게요!</span>
+            <span class="badges">
+              <span class="pill count">3</span>
+              <span class="pill pin" title="고정">📌</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a class="chat" href="#" role="listitem">
+        <div class="avatar lg" data-initial="영"></div>
+        <div class="content">
+          <div class="top">
+            <span class="name">영수</span>
+            <time class="time">어제</time>
+          </div>
+          <div class="bottom">
+            <span class="preview">오케이! 파일 받았어 🙌</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="chat unread" href="#" role="listitem">
+        <div class="avatar lg" data-initial="교"></div>
+        <div class="content">
+          <div class="top">
+            <span class="name">교수님</span>
+            <time class="time">08:03</time>
+          </div>
+          <div class="bottom">
+            <span class="preview">수정본 확인 바랍니다.</span>
+            <span class="badges"><span class="pill count">1</span></span>
+          </div>
+        </div>
+      </a>
+
+      <a class="chat muted" href="#" role="listitem">
+        <div class="avatar lg" data-initial="알"></div>
+        <div class="content">
+          <div class="top">
+            <span class="name">알림 채널</span>
+            <time class="time">수</time>
+          </div>
+          <div class="bottom">
+            <span class="preview">[공지] 서버 점검 안내 (금 02:00)</span>
+            <span class="badges"><span class="pill mute">🔕</span></span>
+          </div>
+        </div>
+      </a>
+
+      <!-- more dummies -->
+      <a class="chat" href="#"><div class="avatar lg" data-initial="현"></div><div class="content"><div class="top"><span class="name">현수</span><time class="time">화</time></div><div class="bottom"><span class="preview">점심은 비빔면?</span></div></div></a>
+      <a class="chat" href="#"><div class="avatar lg" data-initial="개"></div><div class="content"><div class="top"><span class="name">개발 동아리</span><time class="time">월</time></div><div class="bottom"><span class="preview">코드 리뷰 자료 업로드함</span></div></div></a>
+    </main>
+
+    <!-- bottom nav (Signal처럼 심플) -->
+    <nav class="nav">
+      <button class="nav-btn active">채팅</button>
+      <button class="nav-btn">연락처</button>
+      <button class="nav-btn">설정</button>
+    </nav>
+
+    <!-- FAB -->
+    <button class="fab" title="새 대화">＋</button>
+  </div>
+</body>
+</html>
+
