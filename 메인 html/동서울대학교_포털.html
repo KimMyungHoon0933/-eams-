@@ -6,76 +6,83 @@
   <title>학사 포털</title>
   <link rel="stylesheet" href="assest/css/seoulUniversity_Copy.css">
   <link rel="stylesheet" href="assest/css/seoulUniverContent.css">
-  <link rel="stylesheet" href="assest/css/event.css">
   <link rel="stylesheet" href="assest/css/notice.css">
   <link rel="stylesheet" href="assest/css/DsuNews.css">
   <link rel="stylesheet" href="assest/css/Quickmenu.css">
   <link rel="stylesheet" href="assest/css/timetable.css">
-  <link rel="stylesheet" href="assest/css/calendar.css">
-  
+  <link rel="stylesheet" href="assest/css/herder.css">
+  <link rel="javascript" href="assest/js/timetable.js">
 </head>
 <body>
     <!--메뉴바 영역-->
-  <header class="head">
-    <div>
-        
+ <div class="greenLayout">
+    <div class="top-bar">
+      <a href="#">로그아웃</a>
+      <a href="#">마이페이지</a>
+      <a href="#">학교홉페이지</a>
+      
     </div>
-    <div class=".head_list">
-    <ul>
-     <li>화면저장</li>
-     <li>캡퍼스맵</li>
-     <li>로그아웃</li>
-    </ul>
-     </div>
-  </header>
-
-  <!-- 상단 영역 -->
-  <div class="high">
-    <div class="high_image">
-        <img src="assest/img/다운로드 (1).png" width=10% height="20%">
-           <h1> 동서울 대학교</h1> <!-- 제목 -->
+    <div class="navbar">
+      <div class="logo">
+        <img src="./assest/img/다운로드 (1).png" alt="로고">
+        동서울대학교
+      </div>
+      <div class="menu-center-container">
+        <div class="menu">
+          <a href="#">통합정보</a>
+          <a href="#">커뮤니티</a>
+          <a href="#">일정</a>
+          <a href="#">도서관</a>
+          
         </div>
-    <nav class="nav">  <!-- 네비게이션 메뉴 -->
-      <a href="#">홈</a>
-      <a href="#">학사</a>
-      <a href="#">캠퍼스</a>
-    </nav>
+      </div>
+      <div class="search-icon" title="검색">
+        <!-- SVG 돋보기 아이콘 -->
+        <svg viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="7" stroke="white" stroke-width="2" fill="none"/>
+          <line x1="17" y1="17" x2="21" y2="21" stroke="white" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
   </div>
-
   <!-- 콘텐츠 영역 -->
   <main class="content">
-    <div class="profile">  <!-- 구역 1 -->
-        <ul class="inlineTwoColumns"><!--1행-->
-          <li>동서울님 </li>
-          <li>학부생</li>
-        </ul>
-      
-        <div class="thridBox " ><!--2행-->
-            <li>메신저 조회</li>
-            <li>비밀번호 변경</li>
-            <li>개인정보 변경</li>
-          <p>안 읽은 문자</p>
-          <p>10건</p>
-          <button class="messageSelectionBox">문자 조회 </button>
-          <span >최종 로그인</span>
-        </div>       
-        <div>
-          <ul class="TimeSelection">
-            <li>현재 시간 </li>
-            <li>21:32</li>
-          </ul>
-          <ul class="TimeSelection">
-            <li>남은 시간 </li>
-            <li>00:59</li>
-          </ul>
-          <div ><p class="oneBox">신분: 학부생</p></div>
-          <div ><p class="oneBox">관련 사이트</p></div>
-        </div>
-    
-   
+  <div class="login-box">
+    <div class="user">
+      <span class="user-name">홍** 님</span>
+      <span class="user-role">학부생</span>
+    </div>
 
-        
-       </div>   
+    <div class="btn-group">
+      <div class="btn">개인정보변경</div>
+      <div class="btn">비밀번호 변경</div>
+      <div class="btn">채팅방 설정</div>
+    </div>
+
+    <div class="mail-box">
+      <P>안읽은 메시지</P> <div><span style="color: red;">1</span> 건 </div>
+      <button class="mail-btn">메시지 조회</button>
+    </div>
+    <div>
+      최종 로그인
+    </div>
+    <div class="info">
+      ▶ 시간: 2018.12.06 19:22<br>
+      ▶ 접속IP: ***.***.***.***
+    </div>
+
+    <div class="select-box">
+      <select>
+        <option>신분: 학부생</option>
+      </select>
+    </div>
+
+    <div class="select-box">
+      <select>
+        <option>나의 관련사이트</option>
+      </select>
+    </div>
+  </div>
         
  
     </div>
@@ -83,7 +90,7 @@
       <div class="tab-container">
         <nav class="tabs">
           <a class="tab active">공지사항</a>
-          <a class="tab">단대공지</a>
+          <a class="tab">단과공지</a>
           <a class="tab">채용/인턴/창업</a>
         </nav>
         <div class="add-btn">＋</div>
@@ -145,9 +152,7 @@
     </div>
     <div class="card">  <!--  구역 3  -->
        <div class="Quick menu">
-        <div class="card">
             <h3>Quick menu</h3>
-        </div>
           <div class="quick-links">
               <ul class="left-column">
                   <li>강의 시간표</li>
@@ -184,31 +189,33 @@
       </div>
 
     </div>
-    <div class="card">  <!-- 구역 5 -->
+  <div class="card">
+       <!-- 구역 5 -->
       <div class="card5">
         <span class="session">
           <img src="./assest/img/휴학신청.png">
           <img src="./assest/img/계절학기 등록납부.png">
           <img src="./assest/img/성적조회.png">       
           <p>휴학 및 복학 신청</p>
-          <p>계절학기 등록금 남부</p>
+          <p>수강신청</p>
           <p>성적조회</p>
         </span>
         <span class="session">
           <img src="./assest/img/강의평가.png">
-          <img src="./assest/img/출석조회(1).png">
-          <img src="./assest/img/출석조회(1).png">  
+          <img src="./assest/img/강의평가.png">
+          <img src="./assest/img/강의평가.png">  
           <p>강의평가 </p>
           <p>출석조회</p>
           <p>시간표 조회</p>
         </span>
       </div>
-    </div>
+
+  </div>
     <div class="card">  <!-- 구역 6 -->
       <div class="tab-container3">
         <nav class="tabs3">
-          <a class="tab active3">동서울대대학교뉴스</a>
-          <a class="tab3">DGU신문</a>
+          <a class="tab active3">동서울대학교뉴스</a>
+          <a class="tab3">동서울 신문</a>
         </nav>
         <div class="add-btn3">＋</div>
       </div>
@@ -260,8 +267,8 @@
        
   
     </div>
-
-    <div class="card">  <!-- 구역 7-->
+<div class="card">
+    <!-- 구역 7-->
       <div class="calendar-container">
         <div class="calendar-header">
           <button id="prevMonth">◀</button>
@@ -271,7 +278,8 @@
         <div class="calendar-grid" id="calendarGrid"></div>
       </div>
       <script src="assest/js/calendar.js"></script>
-    </div>
+</div>
+    
     <div class="card">  <!-- 구역 8 -->
       <div class="tab-container2">
         <nav class="tabs2">
@@ -284,7 +292,7 @@
       <div class="event-main">
 
         <div class="event-info">
-          <div class="event-title">자유 게시판</div>
+          <div class="event-title">컴퓨터소프트웨어 학과 게시판</div>
           <ul class="news-list">
             <li class="news-item">
               <div class="title">
@@ -329,6 +337,7 @@
             </div>
       </div>
     </div>
+  
   </main>
 
 

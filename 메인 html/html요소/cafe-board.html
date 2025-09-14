@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>동서울대학교 컴퓨터소프트웨어학과 · 학과게시판</title>
+  <link rel="stylesheet" href="cafe-board.css" />
+</head>
+<body>
+  <!-- 학교 포털 스타일 헤더 -->
+  <header class="portal-header">
+    <div class="wrap head-top">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <h1 class="brand-title">동서울대학교</h1>
+      </div>
+      <nav class="top-links">
+        <a href="#">로그인</a>
+        <a href="#">마이페이지</a>
+        <a href="#">학교홈페이지</a>
+      </nav>
+    </div>
+    <nav class="portal-menubar">
+      <div class="wrap">
+        <ul>
+          <li><a href="#">통합정보</a></li>
+          <li><a href="#">커뮤니티</a></li>
+          <li><a href="#">일정</a></li>
+          <li><a href="#">도서관</a></li>
+        </ul>
+        <form class="top-search" action="#" method="get">
+          <input type="search" placeholder="검색" />
+          <button type="submit">🔍</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <!-- 본문: 카페형 게시판 구조 유지 -->
+  <main class="cafe-container">
+    <aside class="cafe-left">
+      <!-- 카테고리 -->
+      <section class="cate">
+        <h2 class="cate-title">카테고리</h2>
+        <ul class="cate-list">
+          <li class="depth1">공지/필독
+            <ul>
+              <li><a href="#">학과 공지</a></li>
+              <li><a href="#">장학/학사</a></li>
+              <li><a href="#">수업/시험</a></li>
+            </ul>
+          </li>
+          <li class="depth1">커뮤니티
+            <ul>
+              <li><a href="#">자유게시판</a></li>
+              <li><a href="#">질문/답변</a></li>
+              <li><a href="#">정보공유</a></li>
+            </ul>
+          </li>
+          <li class="depth1">진로/취업
+            <ul>
+              <li><a href="#">채용공고</a></li>
+              <li><a href="#">인턴/현장실습</a></li>
+            </ul>
+          </li>
+          <li class="depth1">자료실
+            <ul>
+              <li><a href="#">강의 자료</a></li>
+              <li><a href="#">프로젝트 템플릿</a></li>
+              <li><a href="#">면접/포트폴리오</a></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- 중앙 게시판 -->
+    <section class="cafe-center">
+      <div class="board-head">
+        <h2 class="board-title">자유게시판</h2>
+        <div class="actions">
+          <select>
+            <option>최신순</option>
+            <option>조회순</option>
+            <option>추천순</option>
+          </select>
+          <a class="btn write" href="#">글쓰기</a>
+        </div>
+      </div>
+
+      <ul class="post-list">
+        <li class="post">
+          <div class="meta">
+            <a class="title" href="#">[모집] 알고리즘 스터디 6기 팀원 구합니다</a>
+            <div class="info">
+              <span class="nick">홍길동</span> ·
+              <time>2025.05.08</time> · 조회 512 · 댓글 12
+            </div>
+          </div>
+        </li>
+        <li class="post notice">
+          <div class="meta">
+            <a class="title" href="#"><span class="pill">공지</span> 2025학년도 장학금 신청 안내</a>
+            <div class="info">학과사무실 · 2025.05.04 · 조회 1,203</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 우측 위젯 -->
+    <aside class="cafe-right">
+      <section class="widget">
+        <h3 class="widget-title">학과 공지</h3>
+        <ul>
+          <li><a href="#">중간고사 성적 공지</a><time>04.05</time></li>
+          <li><a href="#">국가장학금 선발자 발표</a><time>03.20</time></li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="cafe-footer">
+    <small>© Dong Seoul Univ. Dept. of Computer Software</small>
+  </footer>
+</body>
+</html>
