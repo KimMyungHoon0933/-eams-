@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학사 포털</title>
+  <link rel="stylesheet" href="../메인 html/assest/css/seoulUniversity_Copy.css">
+  <link rel="stylesheet" href="../메인 html/assest/css/seoulUniverContent.css">
+  <link rel="stylesheet" href="../메인 html/assest/css/notice.css">
+  <link rel="stylesheet" href="../메인 html/assest/css/DsuNews.css">
+  <link rel="stylesheet" href="../메인 html/assest/css/Quickmenu.css">
+  <link rel="stylesheet" href="../메인 html/assest/css/timetable.css">
+  <link rel="stylesheet" href="../메인 html/assest/css/herder.css">
+  <link rel="stylesheet" href="../메인 html/assest/css/UnvierFuction_menu.css">
+</head>
+<body>
+    <!--메뉴바 영역-->
+ <div class="greenLayout">
+    <div class="top-bar">
+      <a href="#">로그아웃</a>
+      <a href="#">마이페이지</a>
+      <a href="#">학교홉페이지</a>
+      
+    </div>
+    <div class="navbar">
+      <div class="logo">
+        <img src="./assest/img/다운로드 (1).png" alt="로고">
+        동서울대학교
+      </div>
+      <div class="menu-center-container">
+        <div class="menu">
+          <a href="#">통합정보</a>
+          <a href="#">커뮤니티</a>
+          <a href="#">일정</a>
+          <a href="#">도서관</a>
+          
+        </div>
+      </div>
+      <div class="search-icon" title="검색">
+        <!-- SVG 돋보기 아이콘 -->
+        <svg viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="7" stroke="white" stroke-width="2" fill="none"/>
+          <line x1="17" y1="17" x2="21" y2="21" stroke="white" stroke-width="2"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+
+<main>
+  <div class="sidebar">
+  <div class="sidebar-header">
+    <button class="tab active">기본메뉴 ▼</button>
+    <button class="tab">즐겨찾기 <span class="star">★</span></button>
+  </div>
+  <ul class="menu-list">
+    <li class="menu-item">
+      <button class="menu-title">학 적 <span class="arrow">▶</span></button>
+      <ul class="submenu">
+        <li>학적 관리</li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <button class="menu-title">수 업 <span class="arrow">▶</span></button>
+      <ul class="submenu">
+        <li>수업 시간표 출력</li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <button class="menu-title">수 강 <span class="arrow">▶</span></button>
+      <ul class="submenu">
+        <li>수강관리</li>
+        <li>수강출력</li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <button class="menu-title" >성 적 <span class="arrow" >▶</span></button>
+      <ul class="submenu">
+        <li>
+          성적처리
+          <ul class="submenu2">
+            <li>금학기 성적 조회(미관점)</li>
+            <li>기이수성적조회</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <button class="menu-title">출석 <span class="arrow">▶</span></button>
+      <ul class="submenu">
+        <li>출석입력</li>
+        <li>출석조회</li>
+      </ul>
+    </li>
+
+    <li class="menu-item">
+      <button class="menu-title">상담 <span class="arrow">▶</span></button>
+      <ul class="submenu">
+        <li>상담 내역</li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <button class="menu-title">휴학 <span class="arrow">▶</span></button>
+      <ul class="submenu">
+        <li>휴학 신청</li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <button class="menu-title">재학 <span class="arrow">▶</span></button>
+      <ul class="submenu">
+        <li>상담 내역</li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <button class="menu-title">졸 업 <span class="arrow">▶</span></button>
+      <ul class="submenu">
+        <li>졸업 신청</li>
+      </ul>
+    </li>
+    <li class="menu-item">
+      <button class="menu-title">문서조회 <span class="arrow">▶</span></button>
+      <ul class="submenu">
+        <li>포트폴리오 관리</li>
+      </ul>
+    </li>
+  </ul>
+
+</div>
+</main>
+<script>
+  // 아코디언 메뉴 클릭 이벤트
+  document.querySelectorAll('.menu-title').forEach(function(btn){
+    btn.addEventListener('click', function() {
+      // 본인 메뉴만 열고, 나머지는 닫기
+      document.querySelectorAll('.menu-title').forEach(function(other){
+        if(other !== btn){
+          other.classList.remove('open');
+          other.parentNode.querySelector('.submenu').classList.remove('open');
+          other.querySelector('.arrow').style.transform = 'rotate(0deg)';
+        }
+      });
+      // 토글 본인 메뉴
+      btn.classList.toggle('open');
+      let submenu = btn.parentNode.querySelector('.submenu');
+      submenu.classList.toggle('open');
+      let arrow = btn.querySelector('.arrow');
+      arrow.style.transform = submenu.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>출석 입력 | 동서울 학사</title>
+  <style>
+    :root { --bg:#f6f7fb; --ink:#111827; --muted:#6b7280; --line:#e5e7eb; --accent:#2563eb; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Malgun Gothic,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); }
+
+    .layout { display:grid; grid-template-columns: 1fr; min-height:100dvh; }
+    .main{ display:grid; grid-template-rows:auto 1fr auto; min-height:100dvh; }
+
+    /* 상단 헤더 */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px clamp(16px,3vw,28px); background:#fff; border-bottom:1px solid var(--line);
+    }
+    .crumbs{ font-size:12px; color:var(--muted); }
+    .titleRow{ display:flex; align-items:center; gap:10px; margin-top:4px; }
+    .title{ margin:0; font-size:clamp(20px,2.4vw,28px); }
+    .classSelect{ border:1px solid #d1d5db; border-radius:10px; padding:8px 10px; background:#fff; }
+    .todayDate{ font-size:14px; font-weight:600; color:var(--ink); }
+
+    .grid{ display:grid; grid-template-columns:280px 1fr 320px; gap:16px; padding:16px clamp(16px,3vw,28px); }
+
+    .card{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:14px; display:grid; gap:12px; }
+    .card h3{ margin:0; font-size:16px; }
+
+    .btn{ border:1px solid #d1d5db; background:#fff; color:var(--ink); padding:10px 12px; border-radius:10px; font-weight:600; cursor:pointer; }
+    .btn:hover{ background:#f3f4f6; }
+    .btn.primary{ background:var(--accent); border-color:var(--accent); color:#fff; }
+    .btn.ghost{ background:#fff; }
+
+    .field{ display:grid; gap:6px; }
+    .field span{ font-size:13px; color:#374151; }
+    .field input, .field select, textarea{ border:1px solid #d1d5db; border-radius:10px; padding:10px 12px; background:#fff; font-size:14px; }
+
+    .list{ margin:0; padding-left:18px; font-size:13px; }
+    .desc{ display:grid; gap:6px; }
+    .desc div{ display:grid; grid-template-columns:80px 1fr; gap:8px; }
+    .desc dt{ color:#6b7280; }
+    .desc dd{ margin:0; }
+
+    .legend{ display:flex; flex-wrap:wrap; gap:6px; }
+    .pill{ padding:4px 8px; border-radius:999px; font-size:12px; border:1px solid var(--line); background:#fff; }
+    .pill.ok{ border-color:#10b981; color:#064e3b; }
+    .pill.late{ border-color:#f59e0b; color:#7c2d12; }
+    .pill.leave{ border-color:#06b6d4; color:#0e7490; }
+    .pill.absent{ border-color:#ef4444; color:#7f1d1d; }
+
+    .centerPlaceholder{ display:grid; }
+    .placeholderBox{ border:2px dashed var(--line); border-radius:16px; min-height:420px; display:grid; place-items:center; color:#6b7280; background:#fafafa; }
+
+    .weeks{ display:grid; gap:8px; max-height:320px; overflow:auto; padding-right:2px; }
+    .weekItem{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:8px 10px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; }
+    .weekItem:hover{ background:#f9fafb; }
+    .weekItem.active{ outline:2px solid var(--accent); border-color:var(--accent); }
+    .weekItem .date{ font-size:12px; color:#6b7280; }
+
+    .bottomBar{ position:sticky; bottom:0; display:flex; align-items:center; justify-content:space-between; padding:12px clamp(16px,3vw,28px); background:rgba(255,255,255,.9); border-top:1px solid var(--line); backdrop-filter:blur(6px); }
+    .leftRow,.rightRow{ display:flex; gap:8px; align-items:center; }
+    .muted{ color:#6b7280; font-size:13px; }
+
+    @media (max-width:1200px){ .grid{ grid-template-columns:240px 1fr 300px; } }
+    @media (max-width:980px){
+      .layout{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns:1fr; }
+      .centerPlaceholder{ order:2; }
+      .toolCol,.infoCol{ order:1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <main class="main">
+      <!-- 상단 헤더 -->
+      <header class="topbar">
+        <div class="left">
+          <div class="crumbs">출석관리 &gt; <strong>출석 입력</strong></div>
+          <div class="titleRow">
+            <h1 class="title">출석 입력</h1>
+            <select class="classSelect" id="classSelect">
+              <option>컴소과 2-1 자료구조</option>
+              <option>컴소과 1-2 웹프로그래밍</option>
+              <option>컴소과 3-1 운영체제</option>
+            </select>
+          </div>
+        </div>
+        <div class="right">
+          <div class="todayDate" id="todayDate"></div>
+        </div>
+      </header>
+
+      <!-- 본문 -->
+      <section class="grid">
+        <!-- 좌측 -->
+        <aside class="toolCol">
+          <div class="card">
+            <h3>필터</h3>
+            <label class="field">
+              <span>상태</span>
+              <select>
+                <option>전체</option>
+                <option>출석</option>
+                <option>지각</option>
+                <option>조퇴</option>
+                <option>결석</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>이름/학번 검색</span>
+              <input type="text" placeholder="예: 20231234 / 홍길동" />
+            </label>
+          </div>
+
+          <div class="card">
+            <h3>메모</h3>
+            <textarea id="memo" rows="6" placeholder="수업 특이사항, 과제 공지 등"></textarea>
+            <div class="rightRow">
+              <button class="btn ghost" type="button" id="saveMemo">임시저장</button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- 중앙 -->
+        <div class="centerPlaceholder">
+          <div class="placeholderBox">중앙 출석표 컴포넌트 영역</div>
+        </div>
+
+        <!-- 우측 -->
+        <aside class="infoCol">
+          <div class="card">
+            <h3>주차 선택</h3>
+            <div class="weeks" id="weeks"></div>
+          </div>
+
+          <div class="card">
+            <h3>오늘 수업정보</h3>
+            <dl class="desc">
+              <div><dt>강의명</dt><dd id="className">컴소과 2-1 자료구조</dd></div>
+              <div><dt>담당</dt><dd>김교수</dd></div>
+              <div><dt>정원/수강</dt><dd>40 / 36</dd></div>
+              <div><dt>평균 출석률</dt><dd>92%</dd></div>
+            </dl>
+            <div class="legend">
+              <span class="pill ok">출석</span>
+              <span class="pill late">지각</span>
+              <span class="pill leave">조퇴</span>
+              <span class="pill absent">결석</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>최근 공지</h3>
+            <ul class="list">
+              <li>9/10: 팀프로젝트 조 편성 완료</li>
+              <li>9/12: 실습실 변경 B-205</li>
+              <li>9/15: 퀴즈 #2 공지</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <!-- 하단 -->
+      <footer class="bottomBar">
+        <div class="leftRow"><span class="muted">자동저장 간격 30초</span></div>
+        <div class="rightRow">
+          <button class="btn ghost" type="button" id="revertBtn">원복</button>
+          <button class="btn" type="button" id="tempSaveBtn">임시저장</button>
+          <button class="btn primary" type="button" id="submitBtn">제출/저장</button>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // 오늘 날짜 표시
+    const todayDateEl = document.getElementById("todayDate");
+    const today = new Date();
+    const y = today.getFullYear();
+    const m = String(today.getMonth()+1).padStart(2,"0");
+    const d = String(today.getDate()).padStart(2,"0");
+    todayDateEl.textContent = `오늘 ${y}-${m}-${d}`;
+
+    // 강의명 연동
+    const classSelect = document.getElementById('classSelect');
+    const className = document.getElementById('className');
+    classSelect.addEventListener('change',()=>{ className.textContent = classSelect.value; });
+
+    // 버튼 이벤트 (임시저장/제출 등)
+    const toast = (msg)=>alert(msg);
+    document.getElementById('saveMemo').addEventListener('click',()=>toast('메모가 임시저장되었습니다.'));
+    document.getElementById('revertBtn').addEventListener('click',()=>toast('마지막 저장 상태로 원복했습니다.'));
+    document.getElementById('tempSaveBtn').addEventListener('click',()=>toast('임시저장 완료'));
+    document.getElementById('submitBtn').addEventListener('click',()=>toast('제출/저장되었습니다.'));
+
+    // 주차 목록 (기존 로직 그대로)
+    const WEEK_START = "2025-03-01";
+    const WEEK_COUNT = 16;
+    function addDays(date, days){
+      const d = new Date(date);
+      d.setDate(d.getDate() + days);
+      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+    }
+    const weeksEl = document.getElementById('weeks');
+    for(let i=1;i<=WEEK_COUNT;i++){
+      const dateStr = addDays(WEEK_START, (i-1)*7);
+      const btn = document.createElement('div');
+      btn.className = 'weekItem';
+      btn.innerHTML = `<span>${i}주차</span><span class="date">(${dateStr})</span>`;
+      weeksEl.appendChild(btn);
+    }
+  </script>
+</body>
+</html>
+
+

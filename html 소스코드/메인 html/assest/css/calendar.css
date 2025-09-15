@@ -1,0 +1,70 @@
+/* 전체 배경 및 글꼴 설정 */
+/*body {
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+  font-size: 13px;
+  margin: 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+}*/
+
+/* 달력 전체를 감싸는 컨테이너 */
+.calendar-container {
+  max-width: 500px; /* 최대 너비 조정 */
+  margin: 0 auto; 
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 8px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 상단 연/월 + 버튼 영역 */
+.calendar-header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* 연/월 텍스트 */
+.calendar-header h1 {
+  font-size: 12px;
+  margin: 0;
+}
+
+/* 이전/다음 월 이동 버튼 */
+.calendar-header button {
+  font-size: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 달력 그리드: 7열 구성 (일~토) */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  gap: 6px; 
+}
+
+/* 각 날짜 셀 스타일 */
+.calendar-cell {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fefefe;
+  padding: 4px; 
+  min-height: 45px; 
+  position: relative;
+}
+
+/* 날짜 숫자 부분 (1, 2, 3...) */
+.calendar-cell .date {
+  font-weight: bold;
+}
+
+/* 이벤트(공휴일, 행사) 텍스트 스타일 */
+.event {
+  font-size: 12px;
+  color: #d14;
+  margin-top: 5px;
+}
