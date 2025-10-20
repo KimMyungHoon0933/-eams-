@@ -1,0 +1,206 @@
+/* ===== Messenger (scoped) ===== */
+/* 루트 컨테이너: 메신저 내부에서만 변수/색을 정의 */
+.msgr{
+  --accent:#9be41f;
+  --bg:#ffffff;
+  --surface:#fff;
+  --ink:#0f172a;
+  --muted:#71717a;
+  --line:#eceff3;
+  --shadow: 0 6px 18px rgba(15,23,42,.06);
+}
+
+/* 다크모드도 메신저 안에서만 동작 */
+@media (prefers-color-scheme: dark){
+  .msgr{
+    --bg:#0b0f14;
+    --surface:#0f1520;
+    --ink:#e6e8eb;
+    --muted:#9aa1a9;
+    --line:#1f2630;
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+}
+
+/* 전역 리셋 금지! (body, :root X) */
+.msgr *{ box-sizing:border-box; }
+
+/* ===== App frame ===== */
+.msgr .msgr-app{
+  width: 360px;
+  max-width: 90%;
+  height: 90dvh;
+  margin: 0 auto;
+  background: var(--surface);
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  position: relative;
+  box-shadow: var(--shadow);
+  border-radius: 16px;
+  overflow: hidden;
+  color: var(--ink);            /* ← 스코프 내부에서만 글자색 지정 */
+}
+
+/* ===== AppBar ===== */
+.msgr .appbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:8px 10px;
+  border-bottom:1px solid var(--line);
+  background:var(--surface);
+  position:sticky; top:0; z-index:2;
+}
+.msgr .brand{ display:flex; gap:8px; align-items:center; }
+.msgr .brand h1{ margin:0; font-size:15px; font-weight:800; }
+.msgr .icon{
+  width:30px; height:30px; border:none; background:transparent; color:var(--ink);
+  display:grid; place-items:center; border-radius:8px; cursor:pointer;
+  line-height:0;
+}
+.msgr .icon.ghost{ width:26px; height:26px; }
+.msgr .icon:hover{ background:rgba(153, 231, 31, .08); }
+.msgr .icon:active{ transform:translateY(1px); }
+
+/* ===== Avatar ===== */
+.msgr .avatar{
+  border-radius:50%;
+  display:grid; place-items:center;
+  font-weight:800;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid var(--line);
+}
+.msgr .avatar.sm{ width:22px; height:22px; font-size:11px; }
+.msgr .avatar.lg{ width:24px; height:24px; font-size:11px; }
+.msgr .avatar::after{ content:attr(data-initial); }
+
+/* ===== Search row ===== */
+.msgr .search-row{
+  padding:6px 8px;
+  border-bottom:1px solid var(--line);
+  background:var(--surface);
+  position:sticky; top:46px; z-index:1;
+}
+.msgr .search{
+  width:100%;
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  outline:none;
+  background:transparent;
+  color:var(--ink);
+  font-size:13px;
+}
+.msgr .search:focus{ border-color:var(--accent); box-shadow:0 0 0 3px rgba(155,228,31,.22); }
+
+/* ===== Chat list ===== */
+.msgr .list{ overflow:auto; background:var(--surface); }
+
+/* 촘촘한 아이템 */
+.msgr .chat{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  padding:2px 8px;
+  border-bottom:1px solid var(--line);
+  text-decoration:none;
+  color:inherit;
+  min-height:34px;
+}
+.msgr .chat:hover{ background:rgba(153, 231, 31, .04); }
+.msgr .chat.pinned{ background:rgba(153, 231, 31, .03); }
+.msgr .chat.muted .name{ opacity:.85; }
+
+/* ✅ content → msg-content (전역 충돌 방지) */
+.msgr .msg-content{ flex:1; min-width:0; }
+
+.msgr .top{ display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.msgr .name{
+  font-weight:700;
+  font-size:12px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.msgr .time{ font-size:10px; color:var(--muted); flex:0 0 auto; }
+.msgr .bottom{ display:flex; justify-content:space-between; align-items:center; gap:6px; }
+.msgr .preview{
+  color:var(--muted);
+  font-size:10px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  max-width:140px;
+}
+.msgr .unread .name{ font-weight:800; }
+.msgr .unread .preview{ color:#213600; }
+
+.msgr .badges{ display:flex; gap:4px; align-items:center; }
+.msgr .pill{
+  display:inline-grid; place-items:center;
+  height:16px; min-width:16px; padding:0 6px;
+  border-radius:999px; background:var(--accent); color:#0c2300;
+  font-weight:800; font-size:10px;
+}
+.msgr .pill.pin, .msgr .pill.mute{ background:transparent; color:var(--muted); border:1px solid var(--line); }
+
+/* ===== Bottom nav ===== */
+.msgr .nav{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line); background:var(--surface);
+}
+.msgr .nav-btn{
+  padding:8px 4px;
+  background:transparent; border:none; cursor:pointer;
+  font-weight:700; color:var(--muted); font-size:12px;
+}
+.msgr .nav-btn.active{ color:var(--ink); border-top:2px solid var(--accent); }
+
+/* FAB */
+.msgr .fab{
+  position:absolute; right:14px; bottom:64px;
+  width:44px; height:44px;
+  border-radius:50%; border:none; cursor:pointer;
+  background:linear-gradient(180deg,#b8ff45,#9be41f);
+  color:#0c2300; font-size:22px; font-weight:900;
+  box-shadow:0 10px 22px rgba(155,228,31,.42);
+}
+.msgr .fab:active{ transform:translateY(1px); }
+
+/* Scrollbar */
+.msgr .list::-webkit-scrollbar{ width:8px; }
+.msgr .list::-webkit-scrollbar-thumb{ background:#e7f8bf; border-radius:999px; }
+.msgr .list::-webkit-scrollbar-track{ background:transparent; }
+
+/* ===== 팝업 오버레이 ===== */
+.msgr .messenger-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+}
+.msgr .messenger-modal {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+.msgr .close-btn {
+  position: absolute; top: 8px; right: 12px;
+  border: none; background: transparent;
+  font-size: 18px; cursor: pointer; color: #333; z-index: 2;
+}
+.msgr .messenger-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
+}
+.msgr .messenger-modal {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+.msgr .close-btn {
+  position: absolute; top: 8px; right: 12px;
+  border: none; background: transparent;
+  font-size: 18px; cursor: pointer; color: #333; z-index: 2;
+}
