@@ -1,6 +1,6 @@
 // src/app/api/insert/route.js
 export const runtime = "nodejs";
-import { db } from "@/lib/lib/db";
+import { db } from "@/db.js";
 
 /**
  * 완전 단순 INSERT 엔드포인트 (select 라우터와 동일 철학: 검증/화이트리스트 없음)
@@ -122,3 +122,4 @@ export async function GET(request) {
     });
   }
 }
+
