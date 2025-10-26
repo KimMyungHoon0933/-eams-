@@ -1,6 +1,6 @@
 // src/app/api/query/route.js
 export const runtime = "nodejs";
-import { db } from "@/db.js";
+import { db } from "@/lib/db";
 
 /**
  * 완전 단순 쿼리 엔드포인트 (검증 없음)
@@ -67,3 +67,4 @@ export async function GET(request) {
   }
 
 }
+
