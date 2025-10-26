@@ -1,6 +1,6 @@
 // app/components/Messenger.js
 "use client";
-import MessageList from "./messeage_component/MessageList";
+import MessageList from "./MessageList";
 
 const chats = [
   {
@@ -101,3 +101,4 @@ export default function Messenger() {
     </div>
   );
 }
+
