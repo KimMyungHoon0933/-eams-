@@ -53,7 +53,7 @@ const chats = [
   },
 ];
 
-import "./css/messenger-list.css"
+import "../css/messenger-list.css"
 export default function Messenger() {
   return (
     <div className="app">
@@ -101,4 +101,5 @@ export default function Messenger() {
     </div>
   );
 }
+
 
