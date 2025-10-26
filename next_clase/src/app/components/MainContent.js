@@ -1,7 +1,7 @@
 // app/components/MainContent.js
 "use client";
 import { useState } from "react";
-import Messenger from "./Messenger";
+import Messenger from "./messeage_component/Messenger";
 
 export default function MainContent() {
   const [showMessenger, setShowMessenger] = useState(false);
@@ -196,4 +196,5 @@ export default function MainContent() {
     </>
   );
 }
+
 
