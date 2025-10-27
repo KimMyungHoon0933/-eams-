@@ -141,7 +141,7 @@ CREATE TABLE `grade` (
 
   CONSTRAINT `PK_GRADE` PRIMARY KEY (`enrollment_id`),
   CONSTRAINT `CK_GRADE_VALID`
-    CHECK (`grade` IN ('A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F')),
+    CHECK (`grade` IN ('A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F')),
   CONSTRAINT `FK_GRADE_ENROLLMENT`
     FOREIGN KEY (`enrollment_id`) REFERENCES `enrollment`(`enrollment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
