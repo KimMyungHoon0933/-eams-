@@ -1,0 +1,77 @@
+/* AttendanceCard.css (신규 파일) */
+
+/* attendance window.html의 <style> 내용 전체 복사 시작 */
+:root {
+  --bg:#f6f7fb; 
+  --card:#fff; 
+  --ink:#0f172a; 
+  --sub:#64748b; 
+  --line:#e5e7eb; 
+  --radius:16px;
+}
+/* body 스타일은 전역 충돌을 피하기 위해 제거하거나 필요에 따라 조정하세요. */
+/* body {
+  margin:0; 
+  padding:24px; 
+  background:var(--bg); 
+  color:var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans KR", sans-serif;
+} */
+
+/* ✅ box-sizing을 카드 관련 요소에만 적용 */
+.cards, .card, .photo, .photo .placeholder, .right, .panel, 
+.info-grid, .chips, .chip, .notes textarea, .footer, .btn {
+  box-sizing: border-box;
+}
+
+.cards {
+  display: flex; /* grid 대신 flex를 사용하여 중앙 영역에 유동적으로 배치 */
+  flex-wrap: wrap; 
+  gap: 18px;
+  justify-content: center; /* 카드를 중앙 정렬 */
+  padding: 20px; /* 중앙 영역 내부 여백 */
+  width: 100%; /* 중앙 영역 전체 사용 */
+}
+/* ... 나머지 카드 관련 CSS (photo, right, panel, info-grid, chips, chip, notes, footer, btn)는 
+   attendance window.html에서 그대로 복사하여 붙여넣습니다. ... */
+.card { display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 14px;
+
+    background: var(--card);
+    border: 1px solid    var(--line);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 16px rgba(0,0,0,.05);
+    padding: 14px;
+    width: fit-content;  }
+
+.left-col {
+    display: grid; /* 자식 요소들을 수직으로 쌓기 위함 */
+    gap: 12px; /* 사진과 학생 정보 패널 사이의 간격 */
+    width: 100%; /* 부모 그리드 셀의 160px 너비를 모두 사용 */
+}
+
+.right-col {
+    display: grid;
+    min-width: 280px; /* 오른쪽 영역의 최소 너비를 지정하여 깔끔하게 보장 */
+}
+
+.photo {  width: 160px;
+    aspect-ratio: 3 / 4;
+    border: 2px dashed #cbd5e1;
+    border-radius: var(--radius);
+    background: #f1f5f9 center/cover no-repeat;
+    display: grid; 
+    place-items: center; }
+
+.footer { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 6px; 
+    background: none; 
+    width: fit-content;
+    height: auto; 
+    margin-left: 80px; 
+}
+
