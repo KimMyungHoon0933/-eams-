@@ -1,0 +1,118 @@
+/*전체 페이지 기본설정*/
+/*body {
+    font-family:'Apple SD Gothic Neo', sans-serif;
+    margin: 20px;
+    background-color: #ffffff;
+  }*/
+  /*시간표 전체 감싸는 컨테이너*/
+  .schedule-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  /*시간표 헤더영역*/
+  .schedule-header {
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 5px;
+  }
+  /*날짜 영역*/
+  .schedule-date-nav {
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  /*날짜 버튼*/
+  .schedule-date-nav button {
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  /*슬라이더 영역을 감싸는 컨테이너*/
+  .schedule-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 100px;
+  }
+  /*슬라이드가 들어가는 트랙*/
+  .schedule-slide-track {
+    transition: transform 0.3s ease-in-out;
+  }
+  /*수업 카드 스타일*/
+  .schedule-card {
+    min-width: 100%;
+    background-color: #fafafa;
+    border: 1px dashed #ccc;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+/* 달력 전체를 감싸는 컨테이너 */
+.calendar-container {
+  max-width: 500px; /* 최대 너비 조정 */
+  margin: 0 auto; 
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 8px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 상단 연/월 + 버튼 영역 */
+.calendar-header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* 연/월 텍스트 */
+.calendar-header h1 {
+  font-size: 12px;
+  margin: 0;
+}
+
+/* 이전/다음 월 이동 버튼 */
+.calendar-header button {
+  font-size: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 달력 그리드: 7열 구성 (일~토) */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  gap: 6px; 
+}
+
+/* 각 날짜 셀 스타일 */
+.calendar-cell {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fefefe;
+  padding: 4px; 
+  position: relative;
+}
+
+/* 날짜 숫자 부분 (1, 2, 3...) */
+.calendar-cell .date {
+  font-weight: bold;
+}
+
+/* 이벤트(공휴일, 행사) 텍스트 스타일 */
+.event {
+  font-size: 12px;
+  color: #d14;
+  margin-top: 5px;
+}
