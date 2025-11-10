@@ -20,7 +20,7 @@ export default function IntegratedMenu({
   //  필요에 따라 freely 수정하세요.
   const routeMap = {
     // 휴·복학
-    "휴학 > 휴학 신청": "/main_content/Integrated/leave_request",
+    "휴학 > 휴학 신청": "/main_content/Integrated/leave_school",
     "휴학 > 복학 신청": "/main_content//Integrated/back_school",
 
     "출석 > 출석입력": "/main_content//Integrated/attendance-input",
@@ -105,3 +105,4 @@ export function GradeExportPageSkeleton() {
   // TODO: 성적 출력(내보내기) 화면을 이 라우트의 page.js에서 구현
   return null;
 }
+
