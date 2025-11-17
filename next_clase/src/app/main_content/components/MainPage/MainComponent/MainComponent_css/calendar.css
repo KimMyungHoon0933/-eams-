@@ -1,0 +1,43 @@
+/* 카드 전체를 어느 정도 크게 */
+.card.calendar-card {
+  height: 100%;
+  min-height: 320px;   /* 필요하면 360~400px 정도로 더 키워도 됨 */
+}
+
+/* 달력이 카드 높이를 꽉 채우도록 */
+.calendar-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 상단 제목 줄 */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 날짜 그리드가 남은 공간을 전부 사용 */
+.calendar-grid {
+  margin-top: 12px;
+  flex: 1;  /* 남은 높이 꽉 채움 */
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: minmax(40px, 1fr);  /* 셀 높이 커짐. 40 대신 60, 70으로 더 키워도 됨 */
+  gap: 4px;
+}
+
+/* 각 칸을 더 크게 보이게 */
+.calendar-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;        /* 숫자 크기 */
+  padding: 4px 0;
+}
+
+/* 요일 헤더는 살짝 굵게 */
+.calendar-weekday {
+  font-weight: 600;
+}

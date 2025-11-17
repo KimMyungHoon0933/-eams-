@@ -1,0 +1,57 @@
+/* 숏컷 아이콘 6개 (위 3개, 아래 3개) */
+.shortcut-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  column-gap: 60px;
+  row-gap: 30px;
+  padding: 20px 0 10px;
+}
+
+.shortcut-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 공통 이미지 스타일 */
+.shortcut-img {
+  object-fit: contain;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* 위쪽 3개 이미지 크기 */
+.shortcut-img-top {
+  width: 150px;
+  height: 150px;
+}
+
+/* 아래쪽 3개 이미지 크기 */
+.shortcut-img-bottom {
+  width: 150px;  /* 필요하면 예: 140px 로 따로 조절 */
+  height: 150px;
+}
+
+/* 글자 */
+.shortcut-item p {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* 아이콘 공통 래퍼 */
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 아이콘 이미지 */
+.icon-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* 비율 유지하면서 빈 공간은 남겨둠 */
+}

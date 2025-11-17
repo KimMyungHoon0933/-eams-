@@ -1,0 +1,163 @@
+.messenger-noti-card {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;          /* 그리드/컬럼 셀 높이를 전부 사용 */
+}
+
+/* 헤더 */
+.messenger-noti-header {
+  width: 100%;
+  padding: 4px 0 6px;
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+} 
+
+.messenger-noti-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.messenger-noti-icon {
+  font-size: 15px;
+}
+
+.messenger-noti-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.messenger-noti-unread {
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.messenger-noti-unread--none {
+  background: #f2f2f2;
+  color: #777;
+}
+
+.messenger-noti-toggle {
+  font-size: 10px;
+  color: #888;
+}
+
+/* 리스트 영역 */
+/* 리스트 영역 */
+.messenger-noti-list {
+  margin-top: 6px;
+  border-top: 1px solid #eee;
+  padding-top: 6px;
+  /* max-height: 220px;  ⬅️ 이 줄은 삭제! */
+
+  flex: 1 1 auto;        /* 위의 헤더 빼고 남은 높이를 전부 사용 */
+  min-height: 0;         /* flex 안에서 높이 제한 없도록 */
+  overflow-y: auto;      /* 여기에서만 세로 스크롤 */
+}
+
+
+.messenger-noti-empty {
+  font-size: 12px;
+  color: #888;
+  padding: 8px 0;
+}
+
+/* 각 알림 아이템 */
+.messenger-noti-item {
+  width: 100%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.messenger-noti-item + .messenger-noti-item {
+  border-top: 1px dashed #eee;
+}
+
+.messenger-noti-item:hover {
+  background: #f9fbff;
+}
+
+/* 방 아바타(원형) */
+.messenger-noti-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e6f0ff;
+  color: #2952cc;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+/* 텍스트 쪽 */
+.messenger-noti-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.messenger-noti-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.messenger-noti-room {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 4px;
+}
+
+.messenger-noti-time {
+  color: #888;
+  flex-shrink: 0;
+}
+
+.messenger-noti-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  align-items: center;
+}
+
+.messenger-noti-preview {
+  font-size: 11px;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.messenger-noti-badge {
+  flex-shrink: 0;
+  min-width: 16px;
+  text-align: center;
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 10px;
+  background: #ff4d4f;
+  color: #fff;
+}
+

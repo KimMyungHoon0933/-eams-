@@ -1,0 +1,35 @@
+/* 신분: 가짜 select (화살표 제거 + 클릭 불가) */
+.readonly-select {
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+  cursor: default;
+}
+
+/* 기본 폰트 크기 */
+.login-box {
+  font-size: 13px;
+}
+
+/* 프로필 박스가 커졌을 때 (largeFont = true 일 때) – 전체는 +2px */
+.login-box.login-box--large {
+  font-size: 15px;
+}
+
+/* 최종 로그인 정보 강조 */
+.login-info {
+  font-size: 18px;
+}
+
+/* 🔹 프로필 버튼 기본 폰트: 14px */
+.login-box .btn-group .btn {
+  font-size: 14px;
+
+}
+
+/* 🔹 프로필이 커졌을 때(large) 버튼만 19px 로 키우기 */
+.login-box.login-box--large .btn-group .btn {
+  font-size: 19px;
+}

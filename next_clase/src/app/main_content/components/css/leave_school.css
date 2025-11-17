@@ -1,0 +1,66 @@
+
+  /* STEP 1 전용 확대 스타일 */
+  .step-1--bigger {
+    font-size: 1.1rem;           /* 기본 글자 조금 키움 */
+  }
+  .step-1--bigger h2 {
+    font-size: 1.8rem;           /* 섹션 제목 크게 */
+    margin-bottom: 1rem;
+  }
+  .step-1--bigger .grid2 {
+    gap: 20px;                   /* 필드 간격 넓게 */
+  }
+  .step-1--bigger .field > span {
+    font-size: 1rem;             /* 라벨 조금 키움 */
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+  .step-1--bigger input,
+  .step-1--bigger select,
+  .step-1--bigger textarea {
+    font-size: 1.05rem;          /* 입력 폰트 크기 업 */
+    height: 44px;                /* 입력 높이 업 (textarea는 rows로 높이 결정) */
+    padding: 10px 12px;
+  }
+  .step-1--bigger .sectionActions .btn {
+    font-size: 1rem;             /* 버튼 텍스트도 약간 키움 */
+    padding: 12px 18px;
+  }
+  .card--narrow {
+    max-width: 640px;     /* 필요하면 560~720px로 조절 */
+    margin: 0 auto;
+    padding: 24px 28px;
+  }
+
+  /* STEP1 그리드: 2열 유지, 적당한 간격 */
+  .card--narrow .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+  }
+
+  .card--narrow h2 {
+    text-align: center;
+    font-size: 1.4rem;    /* 과하게 커지지 않게 */
+    margin-bottom: 12px;
+  }
+
+  /* 입력·라벨 폭 통일 */
+  .card--narrow .field { width: 100%; }
+  .card--narrow .field > span {
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .card--narrow input,
+  .card--narrow select,
+  .card--narrow textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 버튼 영역 정렬 */
+  .card--narrow .sectionActions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
