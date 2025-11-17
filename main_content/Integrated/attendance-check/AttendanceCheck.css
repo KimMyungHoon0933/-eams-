@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls select, .controls button {
+    padding: 8px;
+    margin-left: 10px;
+}
+
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendar-nav button {
+    padding: 5px 10px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    max-width: 900px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.day-name, .day {
+    padding: 10px;
+    border: 1px solid #eee;
+    text-align: center;
+    min-height: 80px;
+}
+
+.day-name {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+/* 출결 상태 색상 */
+.present { background-color: #d4edda; color: #155724; } /* 녹색 */
+.late { background-color: #ffeeba; color: #856404; }    /* 노란색 */
+.absent { background-color: #f8d7da; color: #721c24; }  /* 빨간색 */
+.unknown { background-color: #f8f8f8; color: #6c757d; } /* 회색 */
+.no-class { background-color: #f8f8f8; color: #ccc; } 
+
+/* 범례 스타일 */
+.legend {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+.status-box {
+    display: inline-block;
+    padding: 3px 8px;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Modal (팝업) 스타일 */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 600px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

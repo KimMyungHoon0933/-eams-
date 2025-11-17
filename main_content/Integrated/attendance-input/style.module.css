@@ -1,0 +1,299 @@
+/* app/attendance-input/style.module.css */
+
+.layout {
+  min-height: calc(100vh - [헤더높이]);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.main {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+}
+
+/* 상단 헤더 */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(16px, 3vw, 28px);
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.crumbs {
+  font-size: 12px;
+  color: var(--muted);
+}
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.title {
+  margin: 0;
+  font-size: clamp(20px, 2.4vw, 28px);
+}
+.classSelect {
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
+}
+.todayDate {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* 본문 */
+.grid {
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  gap: 24px;
+  padding: 16px;
+  align-items: start;
+}
+
+.toolCol,
+.infoCol {
+  height: auto;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background: #fff;
+  border: 3px solid var(--line);
+  border-radius: 16px;
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+.cards {
+  display: flex;         /* Flexbox 레이아웃 사용 */
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;             /* 카드 간의 간격 */
+  justify-content: center;
+  width: 100%;
+}
+.card h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.btn {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: var(--ink);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #f3f4f6;
+}
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.btn.ghost {
+  background: #fff;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+.field span {
+  font-size: 15px;
+  color: #374151;
+}
+.field input,
+.field select,
+
+.list {
+  list-style: none; /* 기본 리스트 스타일 제거 */
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  /* 아이템 아래에 구분선 추가 */
+  border-bottom: 1px solid var(--line, #e5e7eb); 
+  padding: 10px 0; /* 내용과 구분선 사이의 상하 여백 */
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.list li:last-child {
+  border-bottom: none;
+}
+
+.desc {
+  display: grid;
+  gap: 6px;
+}
+.desc div {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 8px;
+}
+.desc dt {
+  color: #6b7280;
+}
+.desc dd {
+  margin: 0;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pill {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.pill.ok {
+  border-color: #10b981;
+  color: #064e3b;
+}
+.pill.late {
+  border-color: #f59e0b;
+  color: #7c2d12;
+}
+.pill.leave {
+  border-color: #06b6d4;
+  color: #0e7490;
+}
+.pill.absent {
+  border-color: #ef4444;
+  color: #7f1d1d;
+}
+
+.centerPlaceholder {
+  display: grid;
+}
+
+.centerArea {
+  grid-column: 2 / 3;
+  overflow-y: auto;
+}
+
+.placeholderBox {
+  border: 2px dashed var(--line);
+  border-radius: 16px;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  color: #6b7280;
+  background: #fafafa;
+}
+
+.weeks {
+  display: grid;
+  gap: 8px;
+  max-height: 320px;
+  overflow: auto;
+  padding-right: 2px;
+}
+.weekItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+}
+.weekItem:hover {
+  background: #f9fafb;
+}
+.weekItem.active {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+.weekItem .date {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* .field 내의 input, select, textarea 스타일을 하나의 클래스로 통합 */
+.formInput {
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff;
+  font-size: 20px;
+}
+
+.bottomBar {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px clamp(16px, 3vw, 28px);
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid var(--line);
+  backdrop-filter: blur(6px);
+}
+.leftRow,
+.rightRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.muted {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: 240px 1fr 300px;
+  }
+}
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .toolCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+  /* ⭐️ 수정된 부분 1: 스티키 적용 ⭐️ */
+  position: sticky;
+  top: 24px; /* 헤더(topbar) 바로 아래에 여백을 주고 고정 */
+  
+  /* ⭐️ 수정된 부분 2: 높이 및 스크롤 적용 ⭐️ */
+  /* ToolCol이 화면 높이보다 길어지면 ToolCol 내부만 스크롤되도록 설정 */
+  /* 100vh(뷰포트 높이)에서 상단 여백(24px)과 필요한 하단 여백(예: 24px)을 뺀 값 */
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  
+  /* (선택) 스크롤바 숨기기: 필요에 따라 주석 해제하여 사용 */
+  /* -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  */
+}
+}
