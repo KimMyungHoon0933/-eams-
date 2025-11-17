@@ -1,0 +1,90 @@
+/* AttendanceCard.css (신규 파일) */
+
+/* attendance window.html의 <style> 내용 전체 복사 시작 */
+:root {
+  --bg:#f6f7fb; 
+  --card:#fff; 
+  --ink:#0f172a; 
+  --sub:#64748b; 
+  --line:#e5e7eb; 
+  --radius:16px;
+}
+/* body 스타일은 전역 충돌을 피하기 위해 제거하거나 필요에 따라 조정하세요. */
+/* body {
+  margin:0; 
+  padding:24px; 
+  background:var(--bg); 
+  color:var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Noto Sans KR", sans-serif;
+} */
+
+/* ✅ box-sizing을 카드 관련 요소에만 적용 */
+.cards, .card, .photo, .photo .placeholder, .right, .panel, 
+.info-grid, .chips, .chip, .notes textarea, .footer, .btn {
+  box-sizing: border-box;
+}
+
+.cards {
+  gap: 16px; /* 원하는 간격으로 설정 (예: 16px) */
+}
+
+.cards .card {
+    /* 이 부분은 이미 AttendanceCard.css에 있을 수 있으니 중복 확인 */
+    max-width: 400px; /* 적당한 최대 폭 설정 */
+    width: 100%; /* 부모에 맞춰 전체 폭 사용 */
+}
+/* ... 나머지 카드 관련 CSS (photo, right, panel, info-grid, chips, chip, notes, footer, btn)는 
+   attendance window.html에서 그대로 복사하여 붙여넣습니다. ... */
+.card { 
+    display: flex ;
+    flex-direction: column ; /* 요소를 수직으로 쌓기 */
+    align-items: center ; /* ⭐️ 전체 카드 내용 중앙 정렬 ⭐️ */
+    gap: 5px ; 
+    padding: 20px ;  
+    max-width: 300px ; /* 카드 폭 좁게 설정 */
+    min-width: 200px ;
+    width: 100% ;
+  }
+
+  
+
+.photo {  width: 120px;
+    aspect-ratio: 1 / 1;
+    border: 2px dashed var(--line);
+    border-radius: 50%;
+    background: #f1f5f9 center/cover no-repeat;
+    display: grid; 
+    place-items: center;
+    margin: 0 auto;
+  }
+
+  .photo .placeholder {
+    /* ... */
+    border-radius: 0%;
+}
+    
+
+.footer { 
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+    margin-top: 10px; 
+    width: fit-content;
+
+.chips .chip.active {
+    font-weight: bold !important;
+    color: white !important; /* 글자색을 흰색으로 변경 */
+    border: 1px solid transparent !important; /* 경계선 제거 */
+}
+
+.chips .chip.active.출석 {
+    background-color: #10b981 !important; /* 녹색 */
+}
+.chips .chip.active.지각 {
+    background-color: #f59e0b !important; /* 주황색 */
+}
+.chips .chip.active.결석 {
+    background-color: #ef4444 !important; /* 빨간색 */
+}
+}
+

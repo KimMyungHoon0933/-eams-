@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>출석 조회 및 관리</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>📅 출석 조회 및 관리 시스템</h1>
+        <div class="controls">
+            <select id="course-select">
+                <option value="data-structure">컴퓨터와 2-1 자료구조</option>
+                <option value="algorithms">알고리즘</option>
+            </select>
+            <select id="user-role">
+                <option value="professor">교수</option>
+                <option value="student">학생</option>
+            </select>
+            <button onclick="renderCalendar()">조회</button>
+        </div>
+    </header>
+
+    <div class="calendar-container">
+        <div class="calendar-nav">
+            <button onclick="prevMonth()"> &lt; </button>
+            <h2 id="current-month-year">2025년 11월</h2>
+            <button onclick="nextMonth()"> &gt; </button>
+        </div>
+        
+        <div class="calendar" id="calendar">
+            <div class="day-name">일</div>
+            <div class="day-name">월</div>
+            <div class="day-name">화</div>
+            <div class="day-name">수</div>
+            <div class="day-name">목</div>
+            <div class="day-name">금</div>
+            <div class="day-name">토</div>
+            </div>
+    </div>
+    
+    <div class="legend">
+        **범례:** <span class="status-box present">출석</span>
+        <span class="status-box late">지각</span>
+        <span class="status-box absent">결석</span>
+        <span class="status-box unknown">미처리/수업없음</span>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title">출결 상세/관리</h3>
+            <div id="modal-body">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
