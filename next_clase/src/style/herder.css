@@ -1,0 +1,112 @@
+/* 모든 규칙을 .appHeader 아래로 한정해 전역 충돌 방지 */
+.appHeader.greenLayout {
+  background-color: #9be41f; /* 연두색 */
+  padding: 0;
+}
+
+.appHeader .top-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 40px 2px 0;
+  font-size: 12px;
+  color: #333;
+}
+.appHeader .top-bar a {
+  color: #222;
+  text-decoration: none;
+  margin-left: 16px;
+}
+.appHeader .top-bar a:hover {
+  text-decoration: underline;
+}
+
+.appHeader .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 40px;
+}
+
+.appHeader .logo {
+  font-weight: bold;
+  font-size: 27px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.appHeader .logo img {
+  height: 32px;
+  margin-right: 10px;
+}
+
+.appHeader .menu-center-container {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.appHeader .menu {
+  display: flex;
+  gap: 32px;
+}
+.appHeader .menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 1px;
+  padding: 2px 4px;
+}
+.appHeader .menu a:hover {
+  text-decoration: underline;
+}
+
+.appHeader .search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  margin-left: 30px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.appHeader .search-icon svg {
+  fill: white;
+  width: 26px;
+  height: 26px;
+  transition: fill 0.2s;
+}
+.appHeader .search-icon:hover svg {
+  fill: #4e7e07;
+}
+
+@media (max-width: 900px) {
+  .appHeader .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .appHeader .menu-center-container {
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+/* 로고 텍스트 전용 스타일 */
+.appHeader .navbar .logo .logo-link {
+  text-decoration: none;   /* 밑줄 제거 */
+  color: #000;             /* 글자색 검정 */
+  font-weight: 700;        /* 굵게 */
+}
+.appHeader .navbar .logo .logo-link:visited,
+.appHeader .navbar .logo .logo-link:hover,
+.appHeader .navbar .logo .logo-link:focus,
+.appHeader .navbar .logo .logo-link:active {
+  text-decoration: none;
+  color: #000;
+}
