@@ -1,0 +1,81 @@
+/* 전체 페이지 기본 설정 */
+.news-root {
+    font-family: 'Apple SD Gothic Neo', sans-serif;
+    margin: 20px;
+    background: #f9f9f9;
+  }
+  
+  /* 상단 탭과 +버튼이 포함된 컨테이너 */
+  .tab-container3 {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #0e771f;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+  
+  /* 탭들 묶음 */
+  .tabs3 {
+    display: flex;
+    gap: 16px;
+  }
+  
+  /* 개별 탭 항목 */
+  .tab3 {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: default;
+  }
+  
+  /* 현재 선택된 탭 강조 표시 */
+  .tab.active3 {
+    color: #106b48;
+    border-bottom: 3px solid #0c5e0c;
+    padding-bottom: 4px;
+  }
+  
+  /* + 버튼 스타일 */
+  .add-btn3 {
+    margin-left: auto;
+    font-size: 18px;
+    color: #0d5f29;
+    cursor: default;
+  }
+  
+  /* 뉴스 목록 전체 스타일 */
+  .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* 각 뉴스 항목 */
+  .news-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  /* 뉴스 제목 */
+  .news-item .title {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    gap: 8px;
+  }
+  
+  /* ▶ 모양의 아이콘 (작은 회색 화살표) */
+  .news-item .bullet3 {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid #666;
+    border-right: 2px solid #666;
+    transform: rotate(45deg);
+    margin-top: 2px;
+  }
+  

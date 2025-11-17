@@ -1,0 +1,265 @@
+    .login-box {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+      font-size: 18px;
+    }
+    .user{
+      margin-bottom: 15px;
+      font-size: 20px; 
+    }
+    .user-name {
+      font-weight: bold;
+    }
+
+    .user-role {
+      float: right;
+      color: #666;
+      font-size: 18px;
+    }
+
+    .btn-group {
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;   /* 가로 중앙 */
+      gap: 4px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .btn {
+      display: inline-flex;
+      margin: 3px 0;
+      padding: 5px 10px;
+
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+      cursor: pointer;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .btn:hover {
+      background-color: #e6e6e6;
+    }
+
+    .mail-box {
+
+  display: grid;
+  align-items: center; /* 수직 정렬 */
+  justify-items: center;
+  gap: 10px;
+  font-size: 15px;
+  grid-auto-flow: column;
+}
+
+.mail-btn {
+  background-color: #5a8dee;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+
+    .mail-btn:hover {
+      background-color: #4a7bd4;
+    }
+
+
+
+    .select-box {
+margin-top: 20px;
+
+    }
+
+    select {
+      width: 100%;
+      padding: 5px;
+      font-size: 18px;
+    }
+
+.profile{
+
+  background-color: white;  /* 카드 배경색 */
+  border-radius: 8px;  /* 둥근 모서리 설정 */
+  color: black;
+  border: 1px solid greenyellow;
+  /*display: grid;
+  grid-template-rows: 0.1fr, 3fr ,1fr ,0.1fr ;
+  grid-auto-flow: row;*/
+  font-size: 18px;
+  grid-row-gap: 0px;
+  padding: 15px 30px 15px 30px;
+  margin: 10px;
+  }
+ 
+  .inlineTwoColumns /*1행의 코드*/{
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    grid-auto-flow:column ;
+    padding-left: 0px ;
+    align-items: center;
+    font-size: 15px;
+  }  
+  ul li{
+    margin: 0px;
+    list-style-type: none;
+  }
+  .inlineTwoColumns ul{
+  padding: 0px 0px 0px 0px; 
+   margin-left: 30px;
+  list-style-type: none;
+  }
+  .inlineTwoColumns  li{
+  padding: 0px 0px 0px 0px; 
+   margin: 10px 0px 0px 0px;
+    list-style-type: none;
+  }
+  .thridBox /*메신저 조회 비밀번호 변경 개인정보 변경등 개인정보 조회관련 기능 박스쪽 디자인*/{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 10px 0px 10px 0px;
+   /* padding: 0px ;*/
+    border-collapse : collapse;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .thridBox li{
+    margin: 0px ;
+    padding: 13px;
+    border: 1px solid black;
+    border-collapse : collapse;
+    text-align: center;
+    list-style-type: none;
+  }
+  .thridBox p{
+   margin: 0px;
+   font-size: 14px;
+
+  }
+  .thridBox span{
+    font-size: 14px;
+  }
+  .messageSelectionBox{
+    background-color: #aabbe3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 3px 5px;
+    cursor: pointer;
+
+  }
+
+  .label {
+    display: inline-block;
+    width: 60px;
+    color: #555;
+  }
+  
+  .TimeSelection  {
+
+    grid-template-columns: 1fr 1fr;
+    padding: 0px 0px 0px 30px;
+    margin: 0px 0px 0px 0px;
+    align-items: start;
+    list-style: none;
+    grid-auto-flow: row;
+  }    
+  .TimeSelection li {
+    display: inline-block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+  }
+  .TimeSelection p{
+    padding: 0px 0px 0px 0px;
+    margin-bottom: 0px;
+  }
+  .oneBox/*현재 신분을 보여주는 박스 라인 css*/
+  {
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #77b81b;
+  }
+  .card5{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+    .quick-menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 520px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 22px 0 10px 0;
+      box-shadow: 0 2px 6px rgba(60,60,60,0.04);
+    }
+    .quick-menu-item {
+      width: 25%; /* 4개씩 한 줄 */
+      text-align: center;
+      margin-bottom: 25px;
+      box-sizing: border-box;
+    }
+    .icon-circle {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      background: #f4f7f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(60,60,60,0.07);
+    }
+    .icon-circle svg {
+      width: 36px;
+      height: 36px;
+    }
+    .quick-menu-label {
+      font-size: 15px;
+      color: #353c46;
+      letter-spacing: -1px;
+      margin-top: 3px;
+      word-break: keep-all;
+    }
+    @media (max-width: 600px) {
+      .quick-menu-item {
+        width: 50%; /* 모바일은 2개씩 */
+      }
+      .quick-menu {
+        max-width: 340px;
+      }
+    }
+
+  .session/*각종 기능들이 바로가기 하는 구역 5 css*/{
+    display: grid;
+    font-size: 12px;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-items: center;
+    
+  
+  }
+  .session img{
+    padding: 0px 20px 0px 0px;
+  }
+  .session p{
+    padding: 0px 20px 0px 20px;
+    margin: 0px 0px 10px 0px;
+    font-size: 18px;
+  }
+  .announcementArea /*공고 구역 디자인 css*/{
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    margin: 20px;
+  }
