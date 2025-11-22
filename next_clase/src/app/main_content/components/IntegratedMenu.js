@@ -68,7 +68,7 @@ export default function IntegratedMenu() {
 
   const routeMapStaff = useMemo(
     () => ({
-      "학적 > 학적 관리 > 개인정보 관리":"/main_content/Integrated/student_info",
+      "학적 > 개인정보 관리":"/main_content/Integrated/student_info",
       "수 업 > 수업 시간표" :"/main_content/Integrated/timetable",
       "휴학 > 휴학 신청": "/main_content/Integrated/leave_school",
       "휴학 > 복학 신청": "/main_content/Integrated/back_school",
@@ -151,3 +151,4 @@ export default function IntegratedMenu() {
     </div>
   );
 }
+
